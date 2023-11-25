@@ -13,5 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        '/form',
+        '/user-agent',
+        '/profile/*',
+        '/file'
     ];
 }
