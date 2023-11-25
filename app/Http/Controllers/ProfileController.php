@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demoMiddleware');
+    }
+
     public function index(Request $request)
     {
         $id = $request->id;
@@ -27,5 +32,9 @@ class ProfileController extends Controller
         $httpOnly = true;
 
         return response($data,200)->cookie($name,$value,$minute,$path,$domain,$secure,$httpOnly);
+    }
+
+    public function profile(Request $request){
+        return $request->header();
     }
 }
